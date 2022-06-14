@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 //Author: Alexey Pak
-public class TestCase01 {
+public class VehicleInformationVerification {
     WebDriver driver;
     @BeforeTest
     public void setUp(){
