@@ -1,6 +1,7 @@
 package com.vytrack.test_features;
 
-import com.vytrack.test_features.base.TestBase;
+
+import com.vytrack.base.TestBase;
 import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,9 +10,9 @@ import org.testng.annotations.Test;
 
 public class TS_13_02_test extends TestBase {
     @Test
-    public void test13_02_1() throws InterruptedException {
+    public void Drivers_Cant_Access_AllVehicles_Models() throws InterruptedException {
         //        1. After logging into the website verify the title name is "Dashboard
-        VyTrack_Utilities.vyTrackLogin(driver, "user42", "UserUser123");
+        VyTrack_Utilities.vyTrackLogin(driver, getTRUCK_DRIVER_2_LOGIN(), getPASSWORD());
 
         //        2. Click on "Fleet" dropdown button
         WebElement fleetDropdownBtn = driver.findElement(By.xpath("(//span[contains(@class, 'title-level-1')])[2]"));
@@ -25,6 +26,6 @@ public class TS_13_02_test extends TestBase {
         Thread.sleep(3000);
 
 //        4. Click and verify "Quick Launchpad" header is still displayed
-            Assert.assertEquals(driver.getTitle(), "Dashboard", "Title Verification Failed");
+        Assert.assertEquals(driver.getTitle(), "Dashboard", "Title Verification Failed");
     }
 }

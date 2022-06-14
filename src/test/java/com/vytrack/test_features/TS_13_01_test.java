@@ -1,5 +1,7 @@
 package com.vytrack.test_features;
 
+import com.vytrack.base.TestBase;
+import com.vytrack.utilities.VyTrack_Utilities;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,20 +12,11 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TS_13_01_test {
+public class TS_13_01_test extends TestBase {
 
-    @Test(priority = 1)
-    public void test13_01_1() throws InterruptedException {
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.get("https://qa2.vytrack.com/user/login");
-        driver.findElement(By.id("prependedInput")).sendKeys("storemanager79");
-        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123");
-        driver.findElement(By.id("_submit")).click();
-        Thread.sleep(3000);
-
+    @Test
+    public void Vehicle_Model_Verification() throws InterruptedException {
+        VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_2_LOGIN(), getPASSWORD());
 //        1. After logging into the website verify the title name is "Dashboard"
         String actualTitle = driver.getTitle();
         String expectedTitle = "Dashboard";
@@ -32,7 +25,6 @@ public class TS_13_01_test {
 
 //        2. Click on "Fleet" dropdown button
         WebElement fleetDropdownBtn = driver.findElement(By.xpath("(//span[contains(@class, 'title-level-1')])[2]"));
-        //Assert.assertTrue(fleetDropdownBtn.isDisplayed());
         fleetDropdownBtn.click();
         Thread.sleep(3000);
 
@@ -63,16 +55,10 @@ public class TS_13_01_test {
     }
 
     @Test
-    public void test13_01_2() throws InterruptedException {
+    public void Click_And_Access_To_All_Vehicles() throws InterruptedException {
 
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_1_LOGIN(), getPASSWORD());
 
-        driver.get("https://qa2.vytrack.com/user/login");
-        driver.findElement(By.id("prependedInput")).sendKeys("storemanager79");
-        driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123");
-        driver.findElement(By.id("_submit")).click();
         Thread.sleep(3000);
 
         WebElement fleetDropdownBtn = driver.findElement(By.xpath("(//span[contains(@class, 'title-level-1')])[2]"));
@@ -83,25 +69,25 @@ public class TS_13_01_test {
         vehiclesModel.click();
         Thread.sleep(3000);
 
-//1. After navigated to the “All Vehicles Model” Page verify there are 4 Model Names displayed
+//1. After navigated to the “All Vehicles Model” Page verify there are at least 4 Model Names displayed
         List<WebElement> allModelNames = driver.findElements(By.xpath("//td[@data-column-label='Model Name']"));
         Thread.sleep(3000);
         for (WebElement link : allModelNames) {
-            System.out.println("Name of each model "+link.getText());
+            System.out.println("Name of each model " + link.getText());
         }
         Assert.assertTrue(allModelNames.size() >= 4);
 
 //2. Verify “Range Rover” model is displayed
-        WebElement rangeRover = driver.findElement(By.xpath("//td[.='RANGE']"));
+        WebElement rangeRover = driver.findElement(By.xpath("(//td[contains(@data-column-label, 'Model')])[1]"));
         Thread.sleep(3000);
         Assert.assertTrue(rangeRover.isDisplayed());
 
-//3. Click and verify the “RANGE ROVER edit Land Rover edit” header is displayed
+//3. Click and verify the “Range LandRover” header is displayed
         rangeRover.click();
         Thread.sleep(3000);
         WebElement pageHeader = driver.findElement(By.cssSelector(".user-name"));
         String actualHeader = pageHeader.getText();
-        String expectedHeader = "RANGE Land Rover";
+        String expectedHeader = "Range LandRover";
         Assert.assertEquals(actualHeader, expectedHeader);
         driver.navigate().back();
 
