@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class VehicleFuelLog_US_9 extends TestBase {
+public class US09_VehicleFuelLog extends TestBase {
 
     @Test
     public void test09_01(){
