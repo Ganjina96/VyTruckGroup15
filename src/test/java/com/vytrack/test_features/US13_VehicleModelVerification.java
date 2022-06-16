@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 
-public class US13_1_vehicleModelVerification extends TestBase {
+public class US13_VehicleModelVerification extends TestBase {
 
     @Test
     public void Vehicle_Model_Verification() throws InterruptedException {
