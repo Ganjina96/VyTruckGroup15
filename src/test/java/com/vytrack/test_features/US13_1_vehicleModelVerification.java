@@ -1,22 +1,23 @@
 package com.vytrack.test_features;
 
 import com.vytrack.base.TestBase;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.VyTrack_Utilities;
-import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class TS_13_01_test extends TestBase {
+
+public class US13_1_vehicleModelVerification extends TestBase {
 
     @Test
     public void Vehicle_Model_Verification() throws InterruptedException {
-        VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_2_LOGIN(), getPASSWORD());
+        driver.get(ConfigurationReader.getProperty("env"));
+        VyTrack_Utilities.vyTrackLogin(driver, ConfigurationReader.getProperty("STORE_MANAGER_2_LOGIN"), ConfigurationReader.getProperty("PASSWORD"));
+
 //        1. After logging into the website verify the title name is "Dashboard"
         String actualTitle = driver.getTitle();
         String expectedTitle = "Dashboard";
@@ -24,9 +25,7 @@ public class TS_13_01_test extends TestBase {
         Assert.assertEquals(actualTitle, expectedTitle, "Title Verification Failed");
 
 //        2. Click on "Fleet" dropdown button
-        WebElement fleetDropdownBtn = driver.findElement(By.xpath("(//span[contains(@class, 'title-level-1')])[2]"));
-        fleetDropdownBtn.click();
-        Thread.sleep(3000);
+        driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
 
 //        3. Select and click on "Vehicles Model" option
         /*
@@ -57,7 +56,7 @@ public class TS_13_01_test extends TestBase {
     @Test
     public void Click_And_Access_To_All_Vehicles() throws InterruptedException {
 
-        VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_1_LOGIN(), getPASSWORD());
+        VyTrack_Utilities.vyTrackLogin(driver, ConfigurationReader.getProperty("STORE_MANAGER_1_LOGIN"), ConfigurationReader.getProperty("PASSWORD"));
 
         Thread.sleep(3000);
 
@@ -77,48 +76,25 @@ public class TS_13_01_test extends TestBase {
         }
         Assert.assertTrue(allModelNames.size() >= 4);
 
-//2. Verify “Range Rover” model is displayed
-        WebElement rangeRover = driver.findElement(By.xpath("(//td[contains(@data-column-label, 'Model')])[1]"));
+//2. Click on the 1st option of “All Vehicles Model”
+        driver.findElement(By.xpath("(//tbody//tr//td//following-sibling::td[@data-column-label='Model Name'])[1]")).click();
         Thread.sleep(3000);
-        Assert.assertTrue(rangeRover.isDisplayed());
 
-//3. Click and verify the “Range LandRover” header is displayed
-        rangeRover.click();
+
+//3. Verify the page's header contains "Tesla"
+        WebElement firstModel = driver.findElement(By.xpath("//h1[@class='user-name']"));
         Thread.sleep(3000);
-        WebElement pageHeader = driver.findElement(By.cssSelector(".user-name"));
-        String actualHeader = pageHeader.getText();
-        String expectedHeader = "Range LandRover";
-        Assert.assertEquals(actualHeader, expectedHeader);
+        Assert.assertTrue(firstModel.getText().contains("Tesla"));
         driver.navigate().back();
 
-//4. Verify “Tesla” model is displayed
-        WebElement tesla = driver.findElement(By.xpath("//td[.='Tesla']"));
-        Assert.assertTrue(tesla.isDisplayed());
-
-//5. Click and verify “Tesla TerrificTruck 1” header is displayed
-        tesla.click();
+//2. Click on the 2nd option of “All Vehicles Model”
+        driver.findElement(By.xpath("//tbody//tr[2]//td[@data-column-label='Model Name']")).click();
         Thread.sleep(3000);
-        WebElement pageHeader2 = driver.findElement(By.xpath("//h1[.='Tesla TerrificTruck 1']"));
-        actualHeader = pageHeader2.getText();
-        expectedHeader = "Tesla TerrificTruck 1";
-        Assert.assertEquals(actualHeader, expectedHeader);
+
+//5. Verify the page's header contains "Toyota"
+        WebElement secondModel = driver.findElement(By.cssSelector("h1.user-name"));
+        Assert.assertTrue(secondModel.getText().contains("Toyota"));
         driver.navigate().back();
-
-//6. Verify “Toyota Supra 1996” is displayed and accessible
-        WebElement toyota = driver.findElement(By.xpath("//td[.='Toyota Supra 1996']"));
-        Assert.assertTrue(toyota.isDisplayed());
-
-//7. Click and verify “Toyota Supra 1996 2 Dr Turbo Hatchback Jim Shorkey” header is displayed
-        toyota.click();
-        Thread.sleep(3000);
-        WebElement pageHeader3 = driver.findElement(By.xpath("//h1[.='Toyota Supra 1996 2 Dr Turbo Hatchback Jim Shorkey']"));
-        actualHeader = pageHeader3.getText();
-        expectedHeader = "Toyota Supra 1996 2 Dr Turbo Hatchback Jim Shorkey";
-        Assert.assertEquals(actualHeader, expectedHeader);
-
-
-        driver.close();
-
 
     }
 
