@@ -1,6 +1,7 @@
 package com.vytrack.test_features;
 
-import com.vytrack.test_features.base.TestBase;
+
+import com.vytrack.base.TestBase;
 import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
