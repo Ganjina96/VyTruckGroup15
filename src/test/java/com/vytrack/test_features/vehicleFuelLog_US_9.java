@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TS_09_test extends TestBase {
+public class vehicleFuelLog_US_9 extends TestBase {
 
     @Test
     public void test09_01(){
@@ -39,7 +39,6 @@ public class TS_09_test extends TestBase {
         VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_1_LOGIN(), getPASSWORD());
 
         //2. navigate and click on the "Fleet" bottom dropdown module
-        wait.withTimeout(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
 
         //3. in the "Fleet" dropdown module navigate and click on the "Vehicles fuel logs"
