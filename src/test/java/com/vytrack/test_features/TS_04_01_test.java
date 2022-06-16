@@ -7,15 +7,18 @@ import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class TS_04_01_test extends TestBase {
 
+    @Ignore
     @Test
     public void deleteCost() throws InterruptedException {
 
 //        1. Login into the website and click on "Fleet" dropdown button
-        VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_1_LOGIN(), getPASSWORD());
+        //TODO
+        //VyTrack_Utilities.vyTrackLogin(driver, getSALES_MANAGER_1_LOGIN(), getPASSWORD());
         Thread.sleep(25000);
         driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
 
@@ -49,6 +52,4 @@ public class TS_04_01_test extends TestBase {
         Assert.assertTrue(message.getText().contains("deleted"), "Vehicle Costs deleted not found");
 
     }
-
-
 }
