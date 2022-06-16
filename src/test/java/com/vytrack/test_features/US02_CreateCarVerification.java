@@ -1,23 +1,22 @@
-package com.vytrack.test_features.test_scenario_0201;
+package com.vytrack.test_features;
 
-import com.vytrack.test_features.base.TestBase;
+import com.vytrack.base.TestBase;
+
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 //Author: Alexey Pak
-public class TestCase01 extends TestBase {
+public class US02_CreateCarVerification extends TestBase {
     @Test
     public void tc02011() throws InterruptedException {
 
         //1. Login into the website, the title is "Dashboard"
-        driver.get("https://qa2.vytrack.com/user/login");
-
-        driver.findElement(By.xpath("//input[@name='_username']")).sendKeys("storemanager79");
-        driver.findElement(By.xpath("//input[@name='_password']")).sendKeys("UserUser123");
-
-        driver.findElement(By.id("_submit")).click();
+        VyTrack_Utilities.vyTrackLogin(driver,ConfigurationReader.getProperty("STORE_MANAGER_1_LOGIN"),
+                ConfigurationReader.getProperty("PASSWORD"));
         Thread.sleep(25000);
 
         //2. Hover over the Fleet menu button

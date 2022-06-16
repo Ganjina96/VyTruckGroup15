@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TS_13_01 {
+public class TS_13_01_test {
 
     @Test(priority = 1)
     public void test13_01_1() throws InterruptedException {
