@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class US13_UnauthorizedAccessToVehicleModelVerification extends TestBase {
+public class US13_UnauthorizedAccessToVehicleModelVerification{
     @Test
     public void Drivers_Cant_Access_AllVehicles_Models() throws InterruptedException {
         //        1. After logging into the website verify the title name is "Dashboard
