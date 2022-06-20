@@ -8,21 +8,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
-    /**
-     *
-     * User Story:3.
-     *      As a truck driver I should be able to access Vehicle Odometer page
-     *
-     *  1.Verify that Only truck driver can access to vehicle odometer page
-     *      (Note: Not authorized users : Store manager, Sales manager )
-     *  2. Verify that truck driver should be able to see all vehicle odometer informations on the grid.
-     *  3.Verify that Truck driver should be able to create Vehicle odometer or cancel it.
-     *  4.Verify that truck driver should be able to delete or edit Vehicle odometer.
-     *  5.Verify that truck driver should be able to reset grid by click on grid settings.
-     *
-     */
 
-    //Author: Alex Stepan
+            /**
+             *
+             * User Story:3.
+             *      As a truck driver I should be able to access Vehicle Odometer page
+             *
+             *  1.Verify that Only truck driver can access to vehicle odometer page
+             *      (Note: Not authorized users : Store manager, Sales manager )
+             *  2. Verify that truck driver should be able to see all vehicle odometer informations on the grid.
+             *  3.Verify that Truck driver should be able to create Vehicle odometer or cancel it.
+             *  4.Verify that truck driver should be able to delete or edit Vehicle odometer.
+             *  5.Verify that truck driver should be able to reset grid by click on grid settings.
+             *
+             */
+
+            //Author: Alex Stepan
 
 
     @Test
