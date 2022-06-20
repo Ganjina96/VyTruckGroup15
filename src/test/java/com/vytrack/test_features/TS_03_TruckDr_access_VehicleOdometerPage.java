@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class US03_TruckDr_access_VehicleOdometerPage extends TestBase {
+public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
     /**
      *
      * User Story:3.
