@@ -3,6 +3,7 @@ package com.vytrack.base;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
@@ -29,18 +30,21 @@ public class TestBase {
 
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
     }
 
     @AfterTest
     public void tearDown(){
-        driver.quit();
+        driver.close();
     }
+
+
 
     public String getTRUCK_DRIVER_1_LOGIN() {
         return TRUCK_DRIVER_1_LOGIN;
     }
+
 
     public String getTRUCK_DRIVER_2_LOGIN() {
         return TRUCK_DRIVER_2_LOGIN;

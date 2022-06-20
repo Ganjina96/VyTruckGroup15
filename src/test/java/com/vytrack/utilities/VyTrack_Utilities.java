@@ -10,5 +10,6 @@ public class VyTrack_Utilities {
         driver.findElement(By.id("prependedInput")).sendKeys(username);
         driver.findElement(By.id("prependedInput2")).sendKeys(password);
         driver.findElement(By.id("_submit")).click();
+
     }
 }
