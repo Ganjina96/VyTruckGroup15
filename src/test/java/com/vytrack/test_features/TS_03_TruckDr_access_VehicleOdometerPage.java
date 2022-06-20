@@ -46,9 +46,10 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
 
         //3. Then  navigates to VehicleOdometerPage
-        Thread.sleep(2000);
-        VehicleOdometerPage_TitleVerify(driver);
+            Thread.sleep(2000);
+            VehicleOdometerPage_TitleVerify(driver);
     }
+
 
     @Test
     public void TC2_StoreMan_canNotAccess_VehicleOdometerPage() throws InterruptedException {
@@ -76,6 +77,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             Assert.assertTrue(driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed(), "The message: You do not have permission,  IS NOT DISPLAYED");
     }
 
+
     @Test
     public void TC3_SalesMan_canNotAccess_VehicleOdometerPage() throws InterruptedException {
         /**
@@ -100,6 +102,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             System.out.println("The message: You do not have permission to perform this action. is displayed? =" + driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed());
             Assert.assertTrue(driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed(), "The message: You do not have permission,  IS NOT DISPLAYED");
     }
+
 
     @Test
     public void TC4_TruckDr_canSee_grid_AllVehOdom() throws InterruptedException {
@@ -168,6 +171,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
 
     }
+
 
 //    @Test
 //    public void TC6_TruckDr_canCreateAndCancel_VehOdom(){
