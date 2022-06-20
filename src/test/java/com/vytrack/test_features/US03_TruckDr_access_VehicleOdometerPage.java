@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 public class US03_TruckDr_access_VehicleOdometerPage extends TestBase {
     /**
+     *
      * User Story:3.
      *      As a truck driver I should be able to access Vehicle Odometer page
      *
@@ -17,7 +18,8 @@ public class US03_TruckDr_access_VehicleOdometerPage extends TestBase {
      *  2. Verify that truck driver should be able to see all vehicle odometer informations on the grid.
      *  3.Verify that Truck driver should be able to create Vehicle odometer or cancel it.
      *  4.Verify that truck driver should be able to delete or edit Vehicle odometer.
-     *  5.Verify that truck driver should be able to reset grid by click on grid setting"
+     *  5.Verify that truck driver should be able to reset grid by click on grid settings.
+     *
      */
 
     //Author: Alex Stepan
