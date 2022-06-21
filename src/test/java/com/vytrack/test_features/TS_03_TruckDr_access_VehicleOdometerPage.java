@@ -43,7 +43,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //1. Given  Truck Driver on DashboardPage
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
 
@@ -52,7 +52,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
 
         //3. Then  navigates to VehicleOdometerPage
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             VehicleOdometerPage_TitleVerify(driver);
     }
 
@@ -69,7 +69,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //1. Given  Store Manager on DashboardPage
             VyTrack_Utilities.vyTrackLogin(driver,getSTORE_MANAGER_2_LOGIN(),getPASSWORD());
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
         //2. When  Select Vehicle Odometer feature under Fleet module
@@ -79,8 +79,11 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
 
         //3. Then  should appear message: You do not have permission to perform this action.
-            System.out.println("The message: You do not have permission to perform this action. is displayed? =" + driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed());
-            Assert.assertTrue(driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed(), "The message: You do not have permission,  IS NOT DISPLAYED");
+            System.out.println("The message: You do not have permission to perform this action. is displayed? ="
+                    + driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed());
+
+            Assert.assertTrue(driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed(),
+                    "The message: You do not have permission,  IS NOT DISPLAYED");
     }
 
 
@@ -96,7 +99,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //1. Given  Store Manager on DashboardPage
             VyTrack_Utilities.vyTrackLogin(driver,getSALES_MANAGER_2_LOGIN(),getPASSWORD());
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
         //2. When  Select Vehicle Odometer feature under Fleet module
@@ -105,8 +108,11 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
 
         //3. Then  should appear message: You do not have permission to perform this action.
-            System.out.println("The message: You do not have permission to perform this action. is displayed? =" + driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed());
-            Assert.assertTrue(driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed(), "The message: You do not have permission,  IS NOT DISPLAYED");
+            System.out.println("The message: You do not have permission to perform this action. is displayed? ="
+                    + driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed());
+
+            Assert.assertTrue(driver.findElement(By.xpath("//div[.='You do not have permission to perform this action.']")).isDisplayed(),
+                    "The message: You do not have permission,  IS NOT DISPLAYED");
     }
 
 
@@ -122,7 +128,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //1. Given  Truck Driver on DashboardPage
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
         //2. When  Select Vehicle Odometer feature under Fleet module
@@ -149,7 +155,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             //login
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
             //verify if you are located at Dashboard page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
             //navigate to Fleet, to Vehicle Odometer
@@ -158,10 +164,11 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //2. When  create Vehicle Odometer
             //click on Create Veh Odom Button
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//a[@title='Create Vehicle Odometer']")).click();
 
             //verify if you are located at Create Vehicle Odometer page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             CreateVehicleOdometerPage_TitleVerify(driver);
 
             // input info: 175000, Tovarish Driver
@@ -173,8 +180,11 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //3. Then should see the created odometer information
 
-            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[1]")).getText(), "175000", "Odometer Value is NOT matching");
-            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[3]")).getText(), "Tovarish Driver", "Driver info is NOT matching");
+            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[1]")).getText(),
+                    "175000", "Odometer Value is NOT matching");
+
+            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[3]")).getText(),
+                    "Tovarish Driver", "Driver info is NOT matching");
 
 
     }
@@ -196,7 +206,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             //login
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
             //verify if you are located at Dashboard page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
             //navigate to Fleet, to Vehicle Odometer
@@ -205,17 +215,18 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
         //2. When  create Vehicle Odometer
             //click on Create Veh Odom Button
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//a[@title='Create Vehicle Odometer']")).click();
 
             //verify if you are located at Create Vehicle Odometer page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             CreateVehicleOdometerPage_TitleVerify(driver);
 
         //3. And  cancel created Vehicle Odometer
             driver.findElement(By.xpath("//a[@data-action='cancel']")).click();
 
         //4. Then  should navigate to VehicleOdometerPage
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             VehicleOdometerPage_TitleVerify(driver);
             String actualTitle = driver.getTitle();
 
@@ -239,7 +250,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             //login
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
             //verify if you are located at Dashboard page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
             //navigate to Fleet, to Vehicle Odometer
@@ -269,8 +280,11 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//button[@class='btn btn-success action-button']")).click();
 
         //4. Then  should see grid AllVehicleOdometer with edited Vehicle Odometer
-            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[1]")).getText(), "111000", "Odometer Value is NOT matching");
-            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[3]")).getText(), "Mr. Driver", "Driver info is NOT matching");
+            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[1]")).getText(),
+                    "111000", "Odometer Value is NOT matching");
+
+            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[3]")).getText(),
+                    "Mr. Driver", "Driver info is NOT matching");
 
     }
 
@@ -287,11 +301,10 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
          */
 
         //1. Given  Truck Driver on VehicleOdometerPage
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             //login
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
             //verify if you are located at Dashboard page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
             //navigate to Fleet, to Vehicle Odometer
@@ -303,13 +316,14 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("(//tr[@class='grid-row row-click-action'])[1]")).click();
 
         //3. And  deleting the Vehicle Odometer
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//i[@class='fa-trash-o hide-text']")).click();
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//a[@class='btn ok btn-danger']")).click();
 
         //4. Then  should see grid AllVehicleOdometer without deleted Vehicle Odometer
-        Thread.sleep(2000);
-        VehicleOdometerPage_TitleVerify(driver);
+            Thread.sleep(5000);
+            VehicleOdometerPage_TitleVerify(driver);
 
     }
 
@@ -329,7 +343,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             //login
             VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
             //verify if you are located at Dashboard page, use method
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             DashboardPage_TitleVerify(driver);
 
             //navigate to Fleet, to Vehicle Odometer
@@ -340,7 +354,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//a[@title='Reset']")).click();
 
         //3. Then  should see resetted grid AllVehicleOdometer
-            Thread.sleep(2000);
+            Thread.sleep(5000);
             VehicleOdometerPage_TitleVerify(driver);
     }
 

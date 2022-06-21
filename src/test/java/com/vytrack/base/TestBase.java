@@ -31,12 +31,12 @@ public class TestBase {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 10);
+//        wait = new WebDriverWait(driver, 10);
     }
 
-    @AfterTest
-    public void tearDown(){
-        driver.quit();
+    @AfterMethod
+    public void tearDownMethod(){
+        driver.close();
     }
 
 
