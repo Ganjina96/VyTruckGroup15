@@ -19,18 +19,18 @@ public class TS_05_TruckDrv_access_vehCostPage extends TestBase {
          */
 
         //1. Given  Truck Driver on DashboardPage
-        VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
-        Thread.sleep(2000);
-        DashboardPage_TitleVerify(driver);
+            VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
+            Thread.sleep(2000);
+            DashboardPage_TitleVerify(driver);
 
         //2.  When  select vehicle cost feature under fleet module
-        driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
-        driver.findElement(By.partialLinkText("Vehicle Costs")).click();
+            driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
+            driver.findElement(By.partialLinkText("Vehicle Costs")).click();
 
         //3.  Then  should see  all Vehicle Costs information
-        WebElement actualHeader = driver.findElement(By.xpath("//div[@class='toolbar']"));
-        System.out.println("actualHeader.isDisplayed() = " + actualHeader.isDisplayed());
-        Assert.assertTrue(actualHeader.isDisplayed(), "Actual header is not displayed");
+            WebElement actualHeader = driver.findElement(By.xpath("//div[@class='toolbar']"));
+            System.out.println("actualHeader.isDisplayed() = " + actualHeader.isDisplayed());
+            Assert.assertTrue(actualHeader.isDisplayed(), "Actual header is not displayed");
 
 
 

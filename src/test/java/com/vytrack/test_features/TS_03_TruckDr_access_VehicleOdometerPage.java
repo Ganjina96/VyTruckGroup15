@@ -3,9 +3,13 @@ package com.vytrack.test_features;
 import com.vytrack.base.TestBase;
 import com.vytrack.utilities.VyTrack_Utilities;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
@@ -129,6 +133,7 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             Assert.assertTrue(driver.findElement(By.xpath("//div[@class='toolbar']")).isDisplayed(), "The grid All Vehicle Odometer IS NOT DISPLAYED");
     }
 
+
     @Test
     public void TC5_TruckDr_canCreate_VehOdom() throws InterruptedException {
         /**
@@ -174,57 +179,169 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
     }
 
 
-//    @Test
-//    public void TC6_TruckDr_canCreateAndCancel_VehOdom(){
-//        /**
-//         * TC 6: Truck Driver can create & cancel VehicleOdometer
-//         *
-//         *  Given  Truck Driver on VehicleOdometerPage
-//         * 	When  create Vehicle Odometer
-//         * 	And  cancel created Vehicle Odometer
-//         * 	When  create Vehicle Odometer
-//         */
-//
-//    }
-//
-//    @Test
-//    public void TC7_TruckDr_canEdit_VehOdom(){
-//        /**
-//         * TC 7: Truck Driver can edit VehicleOdometer
-//         *
-//         *  Given  Truck Driver on VehicleOdometerPage
-//         * 	When  selecting any Vehicle Odometer inside grid AllVehicleOdometer
-//         * 	And  editing the Vehicle Odometer
-//         * 	Then  should see grid AllVehicleOdometer with edited Vehicle Odometer
-//         */
-//
-//    }
-//
-//    @Test
-//    public void TC8_TruckDr_canDelete_VehOdom(){
-//        /**
-//         * TC 8: Truck Driver can delete VehicleOdometer
-//         *
-//         *  Given  Truck Driver on VehicleOdometerPage
-//         * 	When  selecting any Vehicle Odometer inside AllVehicleOdometer grid
-//         * 	And  deleting the Vehicle Odometer
-//         * 	Then  should see grid AllVehicleOdometer without deleted Vehicle Odometer
-//         */
-//
-//    }
-//
-//    @Test
-//    public void TC9_TruckDr_canReset_grid_AllVehOdom(){
-//        /**
-//         * TC 9: Truck Driver can reset grid AllVehicleOdometer
-//         *
-//         *  Given  Truck Driver on VehicleOdometerPage
-//         * 	When  resetting grid AllVehicleOdometer
-//         * 	Then  should see resetted grid AllVehicleOdometer
-//         */
-//
-//    }
+    @Test
+    public void TC6_TruckDr_canCreateAndCancel_VehOdom() throws InterruptedException {
+        /**
+         * TC 6: Truck Driver can create & cancel VehicleOdometer
+         *
+         *  Given  Truck Driver on VehicleOdometerPage
+         * 	When  create Vehicle Odometer
+         * 	And  cancel created Vehicle Odometer
+         * 	Then  should navigate to VehicleOdometerPage
+         */
 
+        //1. Given  Truck Driver on VehicleOdometerPage
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            //login
+            VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
+            //verify if you are located at Dashboard page, use method
+            Thread.sleep(2000);
+            DashboardPage_TitleVerify(driver);
+
+            //navigate to Fleet, to Vehicle Odometer
+            driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
+            driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
+
+        //2. When  create Vehicle Odometer
+            //click on Create Veh Odom Button
+            driver.findElement(By.xpath("//a[@title='Create Vehicle Odometer']")).click();
+
+            //verify if you are located at Create Vehicle Odometer page, use method
+            Thread.sleep(2000);
+            CreateVehicleOdometerPage_TitleVerify(driver);
+
+        //3. And  cancel created Vehicle Odometer
+            driver.findElement(By.xpath("//a[@data-action='cancel']")).click();
+
+        //4. Then  should navigate to VehicleOdometerPage
+            Thread.sleep(2000);
+            VehicleOdometerPage_TitleVerify(driver);
+            String actualTitle = driver.getTitle();
+
+    }
+
+
+    @Test
+    public void TC7_TruckDr_canEdit_VehOdom() throws InterruptedException {
+        /**
+         * TC 7: Truck Driver can edit VehicleOdometer
+         *
+         *  Given  Truck Driver on VehicleOdometerPage
+         * 	When  selecting any Vehicle Odometer inside grid AllVehicleOdometer
+         * 	And  editing the Vehicle Odometer
+         * 	Then  should see grid AllVehicleOdometer with edited Vehicle Odometer
+         */
+
+
+        //1. Given  Truck Driver on VehicleOdometerPage
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            //login
+            VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
+            //verify if you are located at Dashboard page, use method
+            Thread.sleep(2000);
+            DashboardPage_TitleVerify(driver);
+
+            //navigate to Fleet, to Vehicle Odometer
+            driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
+            driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
+
+        //2. When  selecting any Vehicle Odometer inside grid AllVehicleOdometer
+            //click on Create Veh Odom Button
+            driver.findElement(By.xpath("(//tr[@class='grid-row row-click-action'])[1]")).click();
+
+        //3. And  editing the Vehicle Odometer
+            //click on Edit button
+            driver.findElement(By.xpath("//i[@class='fa-pencil-square-o hide-text']")).click();
+
+            //edit info to 111000, Mr. Driver
+            WebElement OdometerValueBox = driver.findElement(By.xpath("//input[@name='custom_entity_type[OdometerValue]']"));
+                OdometerValueBox.click();
+                OdometerValueBox.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+                OdometerValueBox.sendKeys("111000");
+
+            WebElement DriverBox = driver.findElement(By.xpath("//input[@name='custom_entity_type[Driver]']"));
+                DriverBox.click();
+                DriverBox.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+                DriverBox.sendKeys("Mr. Driver");
+
+            //click on Button Save and Close
+            driver.findElement(By.xpath("//button[@class='btn btn-success action-button']")).click();
+
+        //4. Then  should see grid AllVehicleOdometer with edited Vehicle Odometer
+            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[1]")).getText(), "111000", "Odometer Value is NOT matching");
+            Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[3]")).getText(), "Mr. Driver", "Driver info is NOT matching");
+
+    }
+
+
+    @Test
+    public void TC8_TruckDr_canDelete_VehOdom() throws InterruptedException {
+        /**
+         * TC 8: Truck Driver can delete VehicleOdometer
+         *
+         *  Given  Truck Driver on VehicleOdometerPage
+         * 	When  selecting any Vehicle Odometer inside AllVehicleOdometer grid
+         * 	And  deleting the Vehicle Odometer
+         * 	Then  should see grid AllVehicleOdometer without deleted Vehicle Odometer
+         */
+
+        //1. Given  Truck Driver on VehicleOdometerPage
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            //login
+            VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
+            //verify if you are located at Dashboard page, use method
+            Thread.sleep(2000);
+            DashboardPage_TitleVerify(driver);
+
+            //navigate to Fleet, to Vehicle Odometer
+            driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
+            driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
+
+        //2. When  selecting any Vehicle Odometer inside grid AllVehicleOdometer
+            //click on Create Veh Odom Button
+            driver.findElement(By.xpath("(//tr[@class='grid-row row-click-action'])[1]")).click();
+
+        //3. And  deleting the Vehicle Odometer
+            driver.findElement(By.xpath("//i[@class='fa-trash-o hide-text']")).click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//a[@class='btn ok btn-danger']")).click();
+
+        //4. Then  should see grid AllVehicleOdometer without deleted Vehicle Odometer
+        Thread.sleep(2000);
+        VehicleOdometerPage_TitleVerify(driver);
+
+    }
+
+
+    @Test
+    public void TC9_TruckDr_canReset_grid_AllVehOdom() throws InterruptedException {
+        /**
+         * TC 9: Truck Driver can reset grid AllVehicleOdometer
+         *
+         *  Given  Truck Driver on VehicleOdometerPage
+         * 	When  resetting grid AllVehicleOdometer
+         * 	Then  should see resetted grid AllVehicleOdometer
+         */
+
+        //1. Given  Truck Driver on VehicleOdometerPage
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            //login
+            VyTrack_Utilities.vyTrackLogin(driver,getTRUCK_DRIVER_3_LOGIN(),getPASSWORD());
+            //verify if you are located at Dashboard page, use method
+            Thread.sleep(2000);
+            DashboardPage_TitleVerify(driver);
+
+            //navigate to Fleet, to Vehicle Odometer
+            driver.findElement(By.xpath("//span[@class='title title-level-1'][contains(.,'Fleet')]")).click();
+            driver.findElement(By.xpath("//span[.='Vehicle Odometer']")).click();
+
+        //2. When  resetting grid AllVehicleOdometer
+            driver.findElement(By.xpath("//a[@title='Reset']")).click();
+
+        //3. Then  should see resetted grid AllVehicleOdometer
+            Thread.sleep(2000);
+            VehicleOdometerPage_TitleVerify(driver);
+    }
 
 
 
