@@ -179,7 +179,6 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
             driver.findElement(By.xpath("//button[@class='btn btn-success action-button']")).click();
 
         //3. Then should see the created odometer information
-
             Assert.assertEquals(driver.findElement(By.xpath("(//div[@class='control-label'])[1]")).getText(),
                     "175000", "Odometer Value is NOT matching");
 
@@ -369,25 +368,29 @@ public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
         String act_Title = driver.getTitle();
         String exp_Title = "Dashboard";
 
-        Assert.assertEquals(act_Title, exp_Title, "Dashboard page Title Verification - FAIL");
+        Assert.assertEquals(act_Title,  exp_Title,  "Dashboard page Title Verification - FAIL");
         System.out.println("------------------------------------------------------");
     }
+
+
 
     // VehicleOdometer page Title verification
     public static void VehicleOdometerPage_TitleVerify(WebDriver driver) {
         String act_Title = driver.getTitle();
         String exp_Title = "Vehicle Odometer - Entities - System - Car - Entities - System";
 
-        Assert.assertEquals(act_Title,exp_Title, "VehicleOdometer page Title Verification - FAIL");
+        Assert.assertEquals(act_Title,  exp_Title,  "VehicleOdometer page Title Verification - FAIL");
         System.out.println("------------------------------------------------------");
     }
+
+
 
     // CreateVehicleOdometer page Title verification
     public static void CreateVehicleOdometerPage_TitleVerify(WebDriver driver) {
         String act_Title = driver.getTitle();
         String exp_Title = "Create Vehicle Odometer - Entities - System - Car - Entities - System";
 
-        Assert.assertEquals(act_Title,exp_Title, "Create Vehicle Odometer page Title Verification - FAIL");
+        Assert.assertEquals(act_Title,  exp_Title,  "Create Vehicle Odometer page Title Verification - FAIL");
         System.out.println("------------------------------------------------------");
     }
 
