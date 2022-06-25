@@ -36,6 +36,14 @@
             <version>7.5</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.svnkit</groupId>
+            <artifactId>svnkit</artifactId>
+            <version>1.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
 
 
     </dependencies>
