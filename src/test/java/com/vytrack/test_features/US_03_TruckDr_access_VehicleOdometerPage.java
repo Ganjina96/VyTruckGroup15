@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TS_03_TruckDr_access_VehicleOdometerPage extends TestBase {
+public class US_03_TruckDr_access_VehicleOdometerPage extends TestBase {
 
 
             /**
