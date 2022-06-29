@@ -40,6 +40,7 @@ class TS_08_test extends TestBase {
         fleetDropdownBtn.click();
         Thread.sleep(2000);
 
+        //....
         //3. in  the "Fleet" dropdown module navigate and click on the "Vehicle Contract ".
         WebElement vehiclesContract = driver.findElement(By.xpath("//span[.='Vehicle Contracts']"));
         vehiclesContract.click();
